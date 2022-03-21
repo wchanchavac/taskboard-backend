@@ -9,7 +9,12 @@ module.exports = (sequelize) => {
 				models.{{../Singular}}.{{this.type}}(models.{{this.SModel}}, {
 					constraints: false,
 					foreignKey: {
-						allowNull: {{#if this.required}} false {{else}} true {{/if}}
+						allowNull: {{#if this.required}} false {{else}} true {{/if}},
+						{{#if this.isManyToMany}}
+						{{#if this.isIntermediateModel}}
+						name: "{{../singular}}Id",
+						{{/if}}
+						{{/if}}
 					},
 					{{#if this.isManyToMany}}
 						{{#if this.isIntermediateModel}}
