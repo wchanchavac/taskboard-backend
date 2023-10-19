@@ -54,6 +54,7 @@ module.exports = {
 			let data = await db.List.findByPk(input.id)
 			if (!data) throw new ApolloError(`List with id: ${input.id} not found`, 'NOT_FOUND')
 			await data.destroy()
+            return data;
         }
     },
     List: {

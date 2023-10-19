@@ -53,6 +53,7 @@ module.exports = {
 			let data = await db.Board.scope({ method: ['me', session] }).findByPk(input.id)
 			if (!data) throw new ApolloError(`Board with id: ${input.id} not found`, 'NOT_FOUND')
 			await data.destroy()
+            return data;
         }
     },
     Board: {
