@@ -36,7 +36,7 @@ module.exports = `
 	extend type Mutation {
 		createTask(input: CreateTask!): Task
 		updateTask(input: UpdateTask!): Task
-		deleteTask(id: ID!): Task
+		deleteTask(input: DeleteInput!): Task
 	}
 
     enum TaskStatus {

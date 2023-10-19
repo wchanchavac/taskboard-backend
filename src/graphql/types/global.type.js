@@ -24,6 +24,10 @@ module.exports = `
         version: String
     }
 
+    input DeleteInput {
+        id: ID!
+    }
+
     input Options {
         where: JSONObject
         limit: Int = 10

@@ -36,7 +36,7 @@ module.exports = `
 	extend type Mutation {
 		createBoard(input: CreateBoard!): Board
 		updateBoard(input: UpdateBoard!): Board
-		deleteBoard(id: ID!): Board
+		deleteBoard(input: DeleteInput!): Board
 	}
 
 

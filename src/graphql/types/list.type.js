@@ -36,7 +36,7 @@ module.exports = `
 	extend type Mutation {
 		createList(input: CreateList!): List
 		updateList(input: UpdateList!): List
-		deleteList(id: ID!): List
+		deleteList(input: DeleteInput!): List
 	}
 
 

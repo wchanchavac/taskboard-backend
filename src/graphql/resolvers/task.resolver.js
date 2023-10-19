@@ -48,11 +48,11 @@ module.exports = {
 			await data.update(input)
 			return data
         },
-        async deleteTask(obj, { id }, { db, req }) {
+        async deleteTask(obj, { input }, { db, req }) {
 			const session = await getSession(req)
 
-			let data = await db.Task.findByPk(id)
-			if (!data) throw new ApolloError(`Task with id: ${id} not found`, 'NOT_FOUND')
+			let data = await db.Task.findByPk(input.id)
+			if (!data) throw new ApolloError(`Task with id: ${input.id} not found`, 'NOT_FOUND')
 			await data.destroy()
         }
     },

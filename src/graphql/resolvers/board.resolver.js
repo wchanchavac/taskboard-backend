@@ -47,11 +47,11 @@ module.exports = {
 			await data.update(input)
 			return data
         },
-        async deleteBoard(obj, { id }, { db, req }) {
+        async deleteBoard(obj, { input }, { db, req }) {
 			const session = await getSession(req)
 
-			let data = await db.Board.scope({ method: ['me', session] }).findByPk(id)
-			if (!data) throw new ApolloError(`Board with id: ${id} not found`, 'NOT_FOUND')
+			let data = await db.Board.scope({ method: ['me', session] }).findByPk(input.id)
+			if (!data) throw new ApolloError(`Board with id: ${input.id} not found`, 'NOT_FOUND')
 			await data.destroy()
         }
     },
